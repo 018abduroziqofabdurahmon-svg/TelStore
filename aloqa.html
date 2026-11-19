@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloqa — TelStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Tel<span>Store</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="nav">
+        <a href="index.html">Asosiy</a>
+        <a href="telefonlar.html">Telefonlar</a>
+        <a href="haqimizda.html">Biz haqimizda</a>
+        <a href="aloqa.html" class="active">Aloqa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Biz Bilan Bog'laning</h1>
+        <p>Savollaringiz bormi? Biz doim yordam berishga tayyormiz</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <div class="card info-box">
+            <h3>📍 Bosh Ofis va Do'kon</h3>
+            <p>Toshkent shahri, Yunusobod tumani, Amir Temur shoh ko'chasi, 45-uy</p>
+          </div>
+          <div class="card info-box">
+            <h3>📞 Telefon Raqamlar</h3>
+            <p>+998 (71) 200-55-77<br>+998 (90) 999-88-77</p>
+          </div>
+          <div class="card info-box">
+            <h3>🕒 Ish Vaqti</h3>
+            <p>Dushanba — Yakshanba: 09:00 dan 21:00 gacha (dam olish kunlarisiz)</p>
+          </div>
+        </div>
+
+        <div class="card contact-form-card">
+          <h2>Xabar Qoldiring</h2>
+          <p>Ma'lumotlaringizni kiriting, mutaxassislarimiz siz bilan bog'lanishadi.</p>
+          <form action="#sent-success" class="contact-form">
+            <div class="form-group">
+              <label for="name">Ismingiz</label>
+              <input type="text" id="name" placeholder="Ismingizni kiriting" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon raqamingiz</label>
+              <input type="tel" id="phone" placeholder="+998 (__) ___-__-__" required>
+            </div>
+            <div class="form-group">
+              <label for="model">Qiziqtirgan model</label>
+              <input type="text" id="model" placeholder="Masalan: iPhone 16 Pro Max">
+            </div>
+            <div class="form-group">
+              <label for="msg">Xabar matni</label>
+              <textarea id="msg" rows="4" placeholder="Savolingizni yozing..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-btn">Yuborish</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="sent-success" class="modal">
+    <div class="modal-box">
+      <a href="#" class="modal-close">&times;</a>
+      <h3>✅ Xabaringiz yuborildi!</h3>
+      <p>Murojaatingiz uchun rahmat. Operatorlarimiz tez orada siz bilan bog'lanishadi.</p>
+      <a href="#" class="btn btn-primary full-btn">Yopish</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo">Tel<span>Store</span></a>
+        <p class="footer-desc">O'zbekistondagi ishonchli va zamonaviy smartfonlar do'koni. Faqat original texnika.</p>
+      </div>
+      <div>
+        <h4>Sahifalar</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Asosiy</a></li>
+          <li><a href="telefonlar.html">Telefonlar</a></li>
+          <li><a href="haqimizda.html">Biz haqimizda</a></li>
+          <li><a href="aloqa.html">Aloqa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aloqa</h4>
+        <ul class="footer-links">
+          <li>Toshkent sh., Amir Temur ko'chasi, 45</li>
+          <li>+998 (71) 200-55-77</li>
+          <li>info@telstore.uz</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TelStore. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

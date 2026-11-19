@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telefonlar Katalogi — TelStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Tel<span>Store</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="nav">
+        <a href="index.html">Asosiy</a>
+        <a href="telefonlar.html" class="active">Telefonlar</a>
+        <a href="haqimizda.html">Biz haqimizda</a>
+        <a href="aloqa.html">Aloqa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Smartfonlar Katalogi</h1>
+        <p>O'zingizga mos brend va modelni tanlang</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container catalog-wrapper">
+        <input type="radio" name="brand" id="tab-all" checked>
+        <input type="radio" name="brand" id="tab-apple">
+        <input type="radio" name="brand" id="tab-samsung">
+        <input type="radio" name="brand" id="tab-xiaomi">
+
+        <div class="filter-tabs">
+          <label for="tab-all">Barchasi</label>
+          <label for="tab-apple">Apple</label>
+          <label for="tab-samsung">Samsung</label>
+          <label for="tab-xiaomi">Xiaomi & Pixel</label>
+        </div>
+
+        <div class="grid-3 catalog-grid">
+          <div class="card product-card item-apple">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80" alt="iPhone 16 Pro Max">
+            </div>
+            <div class="product-info">
+              <span class="tag">Apple</span>
+              <h3>iPhone 16 Pro Max</h3>
+              <p class="specs">256GB • Desert Titanium</p>
+              <div class="product-bottom">
+                <span class="price">$1,290</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card item-apple">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80" alt="iPhone 16">
+            </div>
+            <div class="product-info">
+              <span class="tag">Apple</span>
+              <h3>iPhone 16</h3>
+              <p class="specs">128GB • Ultramarine</p>
+              <div class="product-bottom">
+                <span class="price">$890</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card item-samsung">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=800&q=80" alt="Galaxy S25 Ultra">
+            </div>
+            <div class="product-info">
+              <span class="tag">Samsung</span>
+              <h3>Galaxy S25 Ultra</h3>
+              <p class="specs">512GB • Titanium Black</p>
+              <div class="product-bottom">
+                <span class="price">$1,220</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card item-samsung">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1678911820864-e2c567c655d7?auto=format&fit=crop&w=800&q=80" alt="Galaxy Z Fold 6">
+            </div>
+            <div class="product-info">
+              <span class="tag">Samsung</span>
+              <h3>Galaxy Z Fold 6</h3>
+              <p class="specs">512GB • Silver Shadow</p>
+              <div class="product-bottom">
+                <span class="price">$1,540</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card item-xiaomi">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80" alt="Google Pixel 9 Pro">
+            </div>
+            <div class="product-info">
+              <span class="tag">Google</span>
+              <h3>Google Pixel 9 Pro</h3>
+              <p class="specs">256GB • Obsidian</p>
+              <div class="product-bottom">
+                <span class="price">$980</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card product-card item-xiaomi">
+            <div class="product-img">
+              <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Xiaomi 15 Ultra">
+            </div>
+            <div class="product-info">
+              <span class="tag">Xiaomi</span>
+              <h3>Xiaomi 15 Ultra</h3>
+              <p class="specs">512GB • Leica Kamera</p>
+              <div class="product-bottom">
+                <span class="price">$1,050</span>
+                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-buy" class="modal">
+    <div class="modal-box">
+      <a href="#" class="modal-close">&times;</a>
+      <h3>Tezkor Buyurtma</h3>
+      <p>Telefon raqamingizni qoldiring, operatorimiz 5 daqiqada bog'lanadi.</p>
+      <form action="#" class="modal-form">
+        <input type="text" placeholder="Ismingiz" required>
+        <input type="tel" placeholder="+998 90 123 45 67" required>
+        <a href="#" class="btn btn-primary full-btn">Buyurtmani tasdiqlash</a>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo">Tel<span>Store</span></a>
+        <p class="footer-desc">O'zbekistondagi ishonchli va zamonaviy smartfonlar do'koni. Faqat original texnika.</p>
+      </div>
+      <div>
+        <h4>Sahifalar</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Asosiy</a></li>
+          <li><a href="telefonlar.html">Telefonlar</a></li>
+          <li><a href="haqimizda.html">Biz haqimizda</a></li>
+          <li><a href="aloqa.html">Aloqa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aloqa</h4>
+        <ul class="footer-links">
+          <li>Toshkent sh., Amir Temur ko'chasi, 45</li>
+          <li>+998 (71) 200-55-77</li>
+          <li>info@telstore.uz</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TelStore. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
