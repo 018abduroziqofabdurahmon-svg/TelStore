@@ -7,18 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Announcement Bar -->
   <div class="announcement-bar">
-    <div class="container announcement-content">
-      <span class="announcement-badge">AKSIYA</span>
-      <span>Bahorgi chegirmalar mavsumi! Barcha smartfonlarga 1 yillik rasmiy kafolat va O'zbekiston bo'ylab bepul yetkazish</span>
-    </div>
+    <span class="announcement-badge">AKSIYA</span>
+    <span>Bahorgi chegirmalar mavsumi! Barcha smartfonlarga 1 yillik rasmiy kafolat va O'zbekiston bo'ylab bepul yetkazish</span>
   </div>
 
   <header class="header">
@@ -58,6 +53,7 @@
         <input type="radio" name="brand" id="tab-xiaomi">
 
         <div class="filter-tabs">
+          <span class="tab-slider"></span>
           <label for="tab-all">Barchasi</label>
           <label for="tab-apple">Apple</label>
           <label for="tab-samsung">Samsung</label>
@@ -65,7 +61,6 @@
         </div>
 
         <div class="grid-3 catalog-grid">
-          <!-- 1. iPhone 16 Pro Max -->
           <div class="card product-card item-apple">
             <div class="product-img">
               <img src="https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/plain/s3://cms/product/d7/db/d7db4903967d25c8a9ae5ab1e596fe7b/250331120244962729.webp" alt="iPhone 16 Pro Max 256GB Cho'l titani">
@@ -90,7 +85,6 @@
             </div>
           </div>
 
-          <!-- 2. iPhone 16 Pro -->
           <div class="card product-card item-apple">
             <div class="product-img">
               <img src="https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/plain/s3://cms/product/d7/db/d7db4903967d25c8a9ae5ab1e596fe7b/250331120244962729.webp" alt="iPhone 16 Pro 256GB Tabiiy titan">
@@ -115,7 +109,6 @@
             </div>
           </div>
 
-          <!-- 3. iPhone 16 -->
           <div class="card product-card item-apple">
             <div class="product-img">
               <img src="https://castore.uz/upload/iblock/be2/93ncl2et4ka81m5ljjbhuxknilbz3l53/smartfon-apple-iphone-16-128gb-ultramarine.jpg" alt="iPhone 16 128GB Ultramarin ko'k">
@@ -139,7 +132,6 @@
             </div>
           </div>
 
-          <!-- 4. Galaxy S25 Ultra -->
           <div class="card product-card item-samsung">
             <div class="product-img">
               <img src="https://minapi.beemarket.uz/prod-media/productImages/1777457078NdRwpUhN7Bdb.webp" alt="Samsung Galaxy S25 Ultra">
@@ -163,7 +155,6 @@
             </div>
           </div>
 
-          <!-- 5. Galaxy S25+ -->
           <div class="card product-card item-samsung">
             <div class="product-img">
               <img src="https://minapi.beemarket.uz/prod-media/productImages/1777457078NdRwpUhN7Bdb.webp" alt="Samsung Galaxy S25+">
@@ -187,7 +178,6 @@
             </div>
           </div>
 
-          <!-- 6. Galaxy Z Fold 6 -->
           <div class="card product-card item-samsung">
             <div class="product-img">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuzQdR7SkHwjNdjlC-Tyoxn5QF96edo1hwaliepOWB2jJZHATBi8fbaYo&s=10" alt="Samsung Galaxy Z Fold 6">
@@ -210,7 +200,6 @@
             </div>
           </div>
 
-          <!-- 7. Google Pixel 9 Pro -->
           <div class="card product-card item-xiaomi">
             <div class="product-img">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWN1jG9GW_v-TAd8KvyaFRkWZ_3ALco6HshCGoHs_8Rk7AgFngTcpSb3o&s=10" alt="Google Pixel 9 Pro">
@@ -233,7 +222,6 @@
             </div>
           </div>
 
-          <!-- 8. Xiaomi 15 Ultra -->
           <div class="card product-card item-xiaomi">
             <div class="product-img">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgldKy10cLtEVsSye_XpDldBrv2S9Xg7kxJsgoZaP9catY8TCym7ExqVI&s=10" alt="Xiaomi 15 Ultra">
@@ -260,7 +248,6 @@
     </section>
   </main>
 
-  <!-- Modal: Buy -->
   <div id="modal-buy" class="modal">
     <div class="modal-box">
       <a href="#" class="modal-close">&times;</a>
@@ -274,14 +261,13 @@
     </div>
   </div>
 
-  <!-- Modal: Success -->
   <div id="buyurtma-qabul-qilindi" class="modal">
-    <div class="modal-box" style="text-align: center;">
+    <div class="modal-box modal-center">
       <a href="#" class="modal-close">&times;</a>
-      <div style="font-size: 3rem; margin-bottom: 12px;">🎉</div>
+      <div class="modal-emoji">🎉</div>
       <h3>Rahmat! Buyurtmangiz qabul qilindi</h3>
       <p>Operatorimiz tez orada ko'rsatilgan telefon raqami orqali siz bilan bog'lanadi.</p>
-      <a href="#" class="btn btn-primary full-btn" style="margin-top: 14px;">Yopish</a>
+      <a href="#" class="btn btn-primary full-btn">Yopish</a>
     </div>
   </div>
 
@@ -316,6 +302,5 @@
 
   <a href="#" class="back-to-top" title="Yuqoriga qaytish">↑</a>
 
-  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
 </body>
 </html>
