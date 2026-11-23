@@ -1696,52 +1696,36 @@ ul {
 }
 
 /* ==========================================================================
-   Apple-tuned Animate On Scroll (AOS) Styles
+   Pure CSS Fluid Entrance Animations (No JavaScript)
    ========================================================================== */
 
-[data-aos] {
-  pointer-events: auto;
-  transition-property: transform, opacity !important;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
-  will-change: transform, opacity;
-}
-
-[data-aos="fade-up"] {
-  transform: translateY(28px) scale(0.985);
-  opacity: 0;
-}
-
-[data-aos="fade-up"].aos-animate {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-[data-aos="fade-right"] {
-  transform: translateX(-32px);
-  opacity: 0;
-}
-
-[data-aos="fade-right"].aos-animate {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-[data-aos="fade-left"] {
-  transform: translateX(32px);
-  opacity: 0;
-}
-
-[data-aos="fade-left"].aos-animate {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-aos] {
-    transform: none !important;
-    opacity: 1 !important;
-    transition: none !important;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.hero-image,
+.section-head,
+.card,
+.about-text,
+.about-img,
+.contact-form-card,
+.info-box,
+.promo-banner {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 /* ==========================================================================
@@ -2047,8 +2031,8 @@ ul {
 
 .back-to-top {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
+  bottom: 24px;
+  right: 24px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -2058,24 +2042,21 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
   z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(16px);
+  opacity: 0.85;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4), 0 0 15px rgba(124, 58, 237, 0.25);
 }
 
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
 .back-to-top:hover {
+  opacity: 1;
   transform: translateY(-4px) scale(1.08);
   box-shadow: 0 12px 30px rgba(59, 130, 246, 0.6), 0 0 25px rgba(124, 58, 237, 0.5);
+  color: #fff;
 }
 
 @media (max-width: 768px) {
