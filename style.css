@@ -1,21 +1,4 @@
 /* ==========================================================================
-   Cross-Page Pure CSS View Transition (Zero-JS Navbar Morph)
-   ========================================================================== */
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.14s;
-}
-
-::view-transition-group(nav-pill) {
-  animation-duration: 0.38s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ==========================================================================
    Design Tokens & Variables
    ========================================================================== */
 :root {
@@ -197,22 +180,6 @@ ul {
   max-width: 480px;
 }
 
-.nav-pill {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: calc(25% - 2.5px);
-  height: calc(100% - 10px);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(139, 92, 246, 0.28));
-  border: 1px solid rgba(99, 102, 241, 0.45);
-  border-radius: var(--radius-pill);
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-  view-transition-name: nav-pill;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .nav a {
   position: relative;
   z-index: 2;
@@ -223,22 +190,21 @@ ul {
   white-space: nowrap;
   padding: 7px 10px;
   border-radius: var(--radius-pill);
-  transition: color 0.3s ease, scale 0.25s ease;
-}
-
-.nav a:hover,
-.nav a.active {
-  color: #ffffff;
+  border: 1px solid transparent;
+  transition: color 0.3s ease, scale 0.25s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav a:hover {
+  color: #ffffff;
   scale: 1.05;
 }
 
-.nav a:nth-child(1).active ~ .nav-pill { transform: translateX(0%); }
-.nav a:nth-child(2).active ~ .nav-pill { transform: translateX(100%); }
-.nav a:nth-child(3).active ~ .nav-pill { transform: translateX(200%); }
-.nav a:nth-child(4).active ~ .nav-pill { transform: translateX(300%); }
+.nav a.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(139, 92, 246, 0.28));
+  border: 1px solid rgba(99, 102, 241, 0.45);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+}
 
 .nav-toggle {
   display: none;
@@ -1195,10 +1161,6 @@ ul {
     flex-direction: column;
     padding: 20px 5%;
     gap: 12px;
-    display: none;
-  }
-
-  .nav-pill {
     display: none;
   }
 
