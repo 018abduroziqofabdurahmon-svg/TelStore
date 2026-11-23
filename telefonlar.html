@@ -7,9 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/aos/aos.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="announcement-badge">YANGILIK</span>
+      <span>Bahorgi aksiya! Promokod: <strong>TELSTORE</strong> (10% chegirma) &bull; Toshkent bo'ylab 1-3 soatda bepul yetkazish</span>
+    </div>
+  </div>
 
   <header class="header">
     <div class="container nav-container">
@@ -26,118 +35,271 @@
         <a href="haqimizda.html">Biz haqimizda</a>
         <a href="aloqa.html">Aloqa</a>
       </nav>
+      <div class="nav-actions">
+        <button id="wishlist-btn" class="nav-icon-btn" aria-label="Sevimlilar" title="Sevimlilar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="cart-badge badge-wishlist" id="wishlist-count" style="display: none;">0</span>
+        </button>
+        <button id="cart-btn" class="nav-icon-btn" aria-label="Savatcha" title="Savatcha">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-header" data-aos="fade-up">
       <div class="container">
         <h1>Smartfonlar Katalogi</h1>
-        <p>O'zingizga mos brend va modelni tanlang</p>
+        <p>O'zingizga mos brend va eng so'nggi flagman modelni tanlang</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container catalog-wrapper">
-        <input type="radio" name="brand" id="tab-all" checked>
-        <input type="radio" name="brand" id="tab-apple">
-        <input type="radio" name="brand" id="tab-samsung">
-        <input type="radio" name="brand" id="tab-xiaomi">
+        <div class="catalog-controls" data-aos="fade-up">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="catalog-search" placeholder="Model yoki parametr bo'yicha qidirish (masalan: 512GB, iPhone, Titan)...">
+          </div>
+          <div class="sort-box">
+            <select id="catalog-sort">
+              <option value="default">Saralash: Tavsiya etilgan</option>
+              <option value="price-asc">Narx: Arzondan qimmatga</option>
+              <option value="price-desc">Narx: Qimmatdan arzonga</option>
+            </select>
+          </div>
+          <span id="catalog-count-badge" class="badge">8 ta model topildi</span>
+        </div>
 
-        <div class="filter-tabs">
-          <label for="tab-all">Barchasi</label>
-          <label for="tab-apple">Apple</label>
-          <label for="tab-samsung">Samsung</label>
-          <label for="tab-xiaomi">Xiaomi & Pixel</label>
+        <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
+          <button type="button" class="filter-tab active" data-brand="all">Barchasi</button>
+          <button type="button" class="filter-tab" data-brand="apple">Apple</button>
+          <button type="button" class="filter-tab" data-brand="samsung">Samsung</button>
+          <button type="button" class="filter-tab" data-brand="xiaomi">Xiaomi & Pixel</button>
         </div>
 
         <div class="grid-3 catalog-grid">
-          <div class="card product-card item-apple">
-            <div class="product-img">
-              <img src="https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/plain/s3://cms/product/d7/db/d7db4903967d25c8a9ae5ab1e596fe7b/250331120244962729.webp" alt="iPhone 16 Pro Max 256GB Desert Titanium">
+          <!-- 1. iPhone 16 Pro Max -->
+          <div class="card product-card item-apple" data-aos="fade-up" data-aos-delay="100" data-id="iphone-16-pro-max" data-price="16800000">
+            <button class="btn-wishlist" data-id="iphone-16-pro-max" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
+              <img src="https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/plain/s3://cms/product/d7/db/d7db4903967d25c8a9ae5ab1e596fe7b/250331120244962729.webp" alt="iPhone 16 Pro Max 256GB Cho'l titani">
             </div>
             <div class="product-info">
-              <span class="tag">Apple</span>
+              <div class="card-header-row">
+                <span class="tag">Apple</span>
+                <span class="installment-badge">1 400 000 so'm/oy</span>
+              </div>
               <h3>iPhone 16 Pro Max</h3>
-              <p class="specs">256GB • Desert Titanium</p>
+              <p class="specs" data-original="256GB • Cho'l titani">256GB • Cho'l titani</p>
+              <div class="color-swatches">
+                <span class="swatch color-desert active" data-color-name="Cho'l titani" title="Cho'l titani"></span>
+                <span class="swatch color-black" data-color-name="Qora titan" title="Qora titan"></span>
+                <span class="swatch color-natural" data-color-name="Tabiiy titan" title="Tabiiy titan"></span>
+                <span class="swatch color-white" data-color-name="Oq titan" title="Oq titan"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$1,290</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">16 800 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="iphone-16-pro-max" data-price="16800000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card product-card item-apple">
-            <div class="product-img">
-              <img src="https://castore.uz/upload/iblock/be2/93ncl2et4ka81m5ljjbhuxknilbz3l53/smartfon-apple-iphone-16-128gb-ultramarine.jpg" alt="iPhone 16 128GB Ultramarine">
+          <!-- 2. iPhone 16 Pro -->
+          <div class="card product-card item-apple" data-aos="fade-up" data-aos-delay="150" data-id="iphone-16-pro" data-price="15200000">
+            <button class="btn-wishlist" data-id="iphone-16-pro" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
+              <img src="https://prod-cdn.prod.asbis.io/s3size/el:t/f:webp/rt:fill/plain/s3://cms/product/d7/db/d7db4903967d25c8a9ae5ab1e596fe7b/250331120244962729.webp" alt="iPhone 16 Pro 256GB Tabiiy titan">
             </div>
             <div class="product-info">
-              <span class="tag">Apple</span>
-              <h3>iPhone 16</h3>
-              <p class="specs">128GB • Ultramarine</p>
+              <div class="card-header-row">
+                <span class="tag">Apple</span>
+                <span class="installment-badge">1 267 000 so'm/oy</span>
+              </div>
+              <h3>iPhone 16 Pro</h3>
+              <p class="specs" data-original="256GB • Tabiiy titan">256GB • Tabiiy titan</p>
+              <div class="color-swatches">
+                <span class="swatch color-natural active" data-color-name="Tabiiy titan" title="Tabiiy titan"></span>
+                <span class="swatch color-desert" data-color-name="Cho'l titani" title="Cho'l titani"></span>
+                <span class="swatch color-black" data-color-name="Qora titan" title="Qora titan"></span>
+                <span class="swatch color-white" data-color-name="Oq titan" title="Oq titan"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$890</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">15 200 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="iphone-16-pro" data-price="15200000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card product-card item-samsung">
-            <div class="product-img">
+          <!-- 3. iPhone 16 -->
+          <div class="card product-card item-apple" data-aos="fade-up" data-aos-delay="200" data-id="iphone-16" data-price="11600000">
+            <button class="btn-wishlist" data-id="iphone-16" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
+              <img src="https://castore.uz/upload/iblock/be2/93ncl2et4ka81m5ljjbhuxknilbz3l53/smartfon-apple-iphone-16-128gb-ultramarine.jpg" alt="iPhone 16 128GB Ultramarin ko'k">
+            </div>
+            <div class="product-info">
+              <div class="card-header-row">
+                <span class="tag">Apple</span>
+                <span class="installment-badge">967 000 so'm/oy</span>
+              </div>
+              <h3>iPhone 16</h3>
+              <p class="specs" data-original="128GB • Ultramarin ko'k">128GB • Ultramarin ko'k</p>
+              <div class="color-swatches">
+                <span class="swatch color-blue active" data-color-name="Ultramarin ko'k" title="Ultramarin ko'k"></span>
+                <span class="swatch color-black" data-color-name="Qora" title="Qora"></span>
+                <span class="swatch color-white" data-color-name="Oq" title="Oq"></span>
+              </div>
+              <div class="product-bottom">
+                <span class="price">11 600 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="iphone-16" data-price="11600000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Galaxy S25 Ultra -->
+          <div class="card product-card item-samsung" data-aos="fade-up" data-aos-delay="250" data-id="galaxy-s25-ultra" data-price="15900000">
+            <button class="btn-wishlist" data-id="galaxy-s25-ultra" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
               <img src="https://minapi.beemarket.uz/prod-media/productImages/1777457078NdRwpUhN7Bdb.webp" alt="Samsung Galaxy S25 Ultra">
             </div>
             <div class="product-info">
-              <span class="tag">Samsung</span>
+              <div class="card-header-row">
+                <span class="tag">Samsung</span>
+                <span class="installment-badge">1 325 000 so'm/oy</span>
+              </div>
               <h3>Galaxy S25 Ultra</h3>
-              <p class="specs">512GB • Titanium Black</p>
+              <p class="specs" data-original="512GB • Qora titan">512GB • Qora titan</p>
+              <div class="color-swatches">
+                <span class="swatch color-black active" data-color-name="Qora titan" title="Qora titan"></span>
+                <span class="swatch color-silver" data-color-name="Kumushrang titan" title="Kumushrang titan"></span>
+                <span class="swatch color-blue" data-color-name="Ko'k titan" title="Ko'k titan"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$1,220</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">15 900 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="galaxy-s25-ultra" data-price="15900000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card product-card item-samsung">
-            <div class="product-img">
+          <!-- 5. Galaxy S25+ -->
+          <div class="card product-card item-samsung" data-aos="fade-up" data-aos-delay="300" data-id="galaxy-s25-plus" data-price="13400000">
+            <button class="btn-wishlist" data-id="galaxy-s25-plus" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
+              <img src="https://minapi.beemarket.uz/prod-media/productImages/1777457078NdRwpUhN7Bdb.webp" alt="Samsung Galaxy S25+">
+            </div>
+            <div class="product-info">
+              <div class="card-header-row">
+                <span class="tag">Samsung</span>
+                <span class="installment-badge">1 117 000 so'm/oy</span>
+              </div>
+              <h3>Galaxy S25+</h3>
+              <p class="specs" data-original="256GB • Zangori kumush">256GB • Zangori kumush</p>
+              <div class="color-swatches">
+                <span class="swatch color-silver active" data-color-name="Zangori kumush" title="Zangori kumush"></span>
+                <span class="swatch color-black" data-color-name="Qora" title="Qora"></span>
+                <span class="swatch color-blue" data-color-name="Och ko'k" title="Och ko'k"></span>
+              </div>
+              <div class="product-bottom">
+                <span class="price">13 400 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="galaxy-s25-plus" data-price="13400000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Galaxy Z Fold 6 -->
+          <div class="card product-card item-samsung" data-aos="fade-up" data-aos-delay="350" data-id="galaxy-z-fold-6" data-price="20000000">
+            <button class="btn-wishlist" data-id="galaxy-z-fold-6" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuzQdR7SkHwjNdjlC-Tyoxn5QF96edo1hwaliepOWB2jJZHATBi8fbaYo&s=10" alt="Samsung Galaxy Z Fold 6">
             </div>
             <div class="product-info">
-              <span class="tag">Samsung</span>
+              <div class="card-header-row">
+                <span class="tag">Samsung</span>
+                <span class="installment-badge">1 667 000 so'm/oy</span>
+              </div>
               <h3>Galaxy Z Fold 6</h3>
-              <p class="specs">512GB • Silver Shadow</p>
+              <p class="specs" data-original="512GB • Kumushrang">512GB • Kumushrang</p>
+              <div class="color-swatches">
+                <span class="swatch color-silver active" data-color-name="Kumushrang" title="Kumushrang"></span>
+                <span class="swatch color-black" data-color-name="Qora" title="Qora"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$1,540</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">20 000 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="galaxy-z-fold-6" data-price="20000000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card product-card item-xiaomi">
-            <div class="product-img">
+          <!-- 7. Google Pixel 9 Pro -->
+          <div class="card product-card item-xiaomi" data-aos="fade-up" data-aos-delay="400" data-id="pixel-9-pro" data-price="12700000">
+            <button class="btn-wishlist" data-id="pixel-9-pro" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWN1jG9GW_v-TAd8KvyaFRkWZ_3ALco6HshCGoHs_8Rk7AgFngTcpSb3o&s=10" alt="Google Pixel 9 Pro">
             </div>
             <div class="product-info">
-              <span class="tag">Google</span>
+              <div class="card-header-row">
+                <span class="tag">Google</span>
+                <span class="installment-badge">1 058 000 so'm/oy</span>
+              </div>
               <h3>Google Pixel 9 Pro</h3>
-              <p class="specs">256GB • Obsidian</p>
+              <p class="specs" data-original="256GB • Obsidian qora">256GB • Obsidian qora</p>
+              <div class="color-swatches">
+                <span class="swatch color-black active" data-color-name="Obsidian qora" title="Obsidian qora"></span>
+                <span class="swatch color-white" data-color-name="Chinni oq" title="Chinni oq"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$980</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">12 700 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="pixel-9-pro" data-price="12700000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card product-card item-xiaomi">
-            <div class="product-img">
+          <!-- 8. Xiaomi 15 Ultra -->
+          <div class="card product-card item-xiaomi" data-aos="fade-up" data-aos-delay="450" data-id="xiaomi-15-ultra" data-price="13700000">
+            <button class="btn-wishlist" data-id="xiaomi-15-ultra" title="Sevimlilarga qo'shish">🤍</button>
+            <div class="product-img" title="Batafsil ko'rish">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgldKy10cLtEVsSye_XpDldBrv2S9Xg7kxJsgoZaP9catY8TCym7ExqVI&s=10" alt="Xiaomi 15 Ultra">
             </div>
             <div class="product-info">
-              <span class="tag">Xiaomi</span>
+              <div class="card-header-row">
+                <span class="tag">Xiaomi</span>
+                <span class="installment-badge">1 142 000 so'm/oy</span>
+              </div>
               <h3>Xiaomi 15 Ultra</h3>
-              <p class="specs">512GB • Leica Kamera</p>
+              <p class="specs" data-original="512GB • Leica kamera">512GB • Leica kamera</p>
+              <div class="color-swatches">
+                <span class="swatch color-black active" data-color-name="Qora charm" title="Qora charm"></span>
+                <span class="swatch color-white" data-color-name="Oq keramika" title="Oq keramika"></span>
+              </div>
               <div class="product-bottom">
-                <span class="price">$1,050</span>
-                <a href="#modal-buy" class="btn btn-sm">Sotib olish</a>
+                <span class="price">13 700 000 so'm</span>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-id="xiaomi-15-ultra" data-price="13700000" title="Savatchaga qo'shish">🛒</button>
+                  <a href="#modal-buy" class="btn btn-sm btn-buy-modal">Sotib olish</a>
+                </div>
               </div>
             </div>
           </div>
@@ -146,16 +308,117 @@
     </section>
   </main>
 
+  <!-- Quick View Modal -->
+  <div id="modal-quickview" class="modal">
+    <div class="modal-box modal-qv-box">
+      <a href="#" class="modal-close">&times;</a>
+      <div class="qv-grid">
+        <div class="qv-image-box">
+          <img class="qv-img" src="" alt="Smartfon">
+          <span class="tag qv-tag">Flagman</span>
+        </div>
+        <div class="qv-details">
+          <h3 class="qv-title">Smartfon</h3>
+          <div class="qv-price">0 so'm</div>
+          
+          <div class="qv-section-label">Xotira hajmini tanlang:</div>
+          <div class="qv-storage-chips"></div>
+
+          <div class="qv-section-label" style="margin-top: 16px;">Asosiy xususiyatlar:</div>
+          <table class="qv-specs-table"></table>
+
+          <div style="margin-top: 20px;">
+            <button class="btn btn-primary full-btn qv-add-cart">Savatchaga qo'shish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy / Checkout Modal -->
   <div id="modal-buy" class="modal">
     <div class="modal-box">
       <a href="#" class="modal-close">&times;</a>
       <h3>Tezkor Buyurtma</h3>
-      <p>Telefon raqamingizni qoldiring, operatorimiz 5 daqiqada bog'lanadi.</p>
+      <p>Buyurtmani rasmiylashtiring, operatorimiz 5 daqiqada bog'lanadi.</p>
       <form action="#" class="modal-form">
-        <input type="text" placeholder="Ismingiz" required>
-        <input type="tel" placeholder="+998 90 123 45 67" required>
-        <a href="#" class="btn btn-primary full-btn">Buyurtmani tasdiqlash</a>
+        <input type="text" id="modal-phone-model" placeholder="Tanlangan model" readonly style="opacity: 0.9; font-weight: 600;">
+        <input type="text" id="modal-name" placeholder="Ismingiz" required>
+        <input type="tel" id="modal-phone" placeholder="+998 90 123 45 67" required>
+
+        <div class="checkout-subtitle">To'lov usuli:</div>
+        <div class="pill-select-grid">
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Payme" checked>
+            <span>💳 Payme</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Click">
+            <span>🔹 Click</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Uzum">
+            <span>🍇 Uzum</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Naqd">
+            <span>💵 Naqd pul</span>
+          </label>
+        </div>
+
+        <div class="checkout-subtitle">Yetkazib berish:</div>
+        <div class="pill-select-grid">
+          <label class="pill-option">
+            <input type="radio" name="delivery_method" value="Kuryer" checked>
+            <span>🚀 Ekspress (1-3 soat)</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="delivery_method" value="Olib ketish">
+            <span>🏬 Do'kondan olish</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-btn" style="margin-top: 18px;">Buyurtmani tasdiqlash</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-overlay"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h3>Savatcha (<span id="drawer-count">0</span>)</h3>
+        <button class="cart-close" id="cart-close">&times;</button>
+      </div>
+      <div class="cart-body" id="cart-items"></div>
+      <div class="cart-footer">
+        <form id="cart-promo-form" class="cart-promo-box">
+          <input type="text" id="cart-promo-input" placeholder="Promokod (masalan: TELSTORE)" autocomplete="off">
+          <button type="submit" class="btn btn-secondary btn-sm">Qo'llash</button>
+        </form>
+        <div id="cart-discount-row" class="cart-discount-row" style="display: none;">
+          <span>Chegirma:</span>
+          <span id="cart-discount-val">- 0 so'm</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Jami to'lov:</span>
+          <strong id="cart-total-price">0 so'm</strong>
+        </div>
+        <button class="btn btn-primary full-btn" id="checkout-btn">Buyurtma berish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div id="wishlist-drawer" class="cart-drawer">
+    <div class="cart-drawer-overlay"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h3>Sevimlilar</h3>
+        <button class="cart-close" id="wishlist-close">&times;</button>
+      </div>
+      <div class="cart-body" id="wishlist-items"></div>
     </div>
   </div>
 
@@ -188,5 +451,29 @@
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" title="Yuqoriga qaytish">↑</button>
+
+  <script src="vendor/aos/aos.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 750,
+        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        once: true,
+        offset: 50
+      });
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    }
+  </script>
 </body>
 </html>

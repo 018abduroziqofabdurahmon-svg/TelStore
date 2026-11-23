@@ -7,9 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/aos/aos.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="announcement-badge">YANGILIK</span>
+      <span>Bahorgi aksiya! Promokod: <strong>TELSTORE</strong> (10% chegirma) &bull; Toshkent bo'ylab 1-3 soatda bepul yetkazish</span>
+    </div>
+  </div>
 
   <header class="header">
     <div class="container nav-container">
@@ -26,37 +35,47 @@
         <a href="haqimizda.html">Biz haqimizda</a>
         <a href="aloqa.html" class="active">Aloqa</a>
       </nav>
+      <div class="nav-actions">
+        <button id="wishlist-btn" class="nav-icon-btn" aria-label="Sevimlilar" title="Sevimlilar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="cart-badge badge-wishlist" id="wishlist-count" style="display: none;">0</span>
+        </button>
+        <button id="cart-btn" class="nav-icon-btn" aria-label="Savatcha" title="Savatcha">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-header" data-aos="fade-up">
       <div class="container">
         <h1>Biz Bilan Bog'laning</h1>
-        <p>Savollaringiz bormi? Biz doim yordam berishga tayyormiz</p>
+        <p>Savollaringiz bormi? Mutaxassislarimiz doim yordam berishga tayyor</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container contact-grid">
         <div class="contact-info">
-          <div class="card info-box">
+          <div class="card info-box" data-aos="fade-right" data-aos-delay="100">
             <h3>📍 Bosh Ofis va Do'kon</h3>
             <p>Toshkent shahri, Yunusobod tumani, Amir Temur shoh ko'chasi, 45-uy</p>
           </div>
-          <div class="card info-box">
+          <div class="card info-box" data-aos="fade-right" data-aos-delay="200">
             <h3>📞 Telefon Raqamlar</h3>
             <p>+998 (71) 200-55-77<br>+998 (90) 999-88-77</p>
           </div>
-          <div class="card info-box">
+          <div class="card info-box" data-aos="fade-right" data-aos-delay="300">
             <h3>🕒 Ish Vaqti</h3>
             <p>Dushanba — Yakshanba: 09:00 dan 21:00 gacha (dam olish kunlarisiz)</p>
           </div>
         </div>
 
-        <div class="card contact-form-card">
+        <div class="card contact-form-card" data-aos="fade-left" data-aos-delay="150">
           <h2>Xabar Qoldiring</h2>
-          <p>Ma'lumotlaringizni kiriting, mutaxassislarimiz siz bilan bog'lanishadi.</p>
+          <p>Ma'lumotlaringizni kiriting, mutaxassislarimiz siz bilan tezkor bog'lanishadi.</p>
           <form action="#sent-success" class="contact-form">
             <div class="form-group">
               <label for="name">Ismingiz</label>
@@ -64,7 +83,7 @@
             </div>
             <div class="form-group">
               <label for="phone">Telefon raqamingiz</label>
-              <input type="tel" id="phone" placeholder="+998 (__) ___-__-__" required>
+              <input type="tel" id="phone" placeholder="+998 90 123 45 67" required>
             </div>
             <div class="form-group">
               <label for="model">Qiziqtirgan model</label>
@@ -72,7 +91,7 @@
             </div>
             <div class="form-group">
               <label for="msg">Xabar matni</label>
-              <textarea id="msg" rows="4" placeholder="Savolingizni yozing..."></textarea>
+              <textarea id="msg" rows="4" placeholder="Savolingiz yoki fikringizni yozing..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary full-btn">Yuborish</button>
           </form>
@@ -84,9 +103,123 @@
   <div id="sent-success" class="modal">
     <div class="modal-box">
       <a href="#" class="modal-close">&times;</a>
-      <h3>✅ Xabaringiz yuborildi!</h3>
-      <p>Murojaatingiz uchun rahmat. Operatorlarimiz tez orada siz bilan bog'lanishadi.</p>
-      <a href="#" class="btn btn-primary full-btn">Yopish</a>
+      <h3>✅ Xabaringiz muvaffaqiyatli yuborildi!</h3>
+      <p>Murojaatingiz uchun tashakkur. Operatorlarimiz 10 daqiqa ichida siz bilan bog'lanishadi.</p>
+      <a href="#" class="btn btn-primary full-btn" style="margin-top: 14px;">Yopish</a>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="modal-quickview" class="modal">
+    <div class="modal-box modal-qv-box">
+      <a href="#" class="modal-close">&times;</a>
+      <div class="qv-grid">
+        <div class="qv-image-box">
+          <img class="qv-img" src="" alt="Smartfon">
+          <span class="tag qv-tag">Flagman</span>
+        </div>
+        <div class="qv-details">
+          <h3 class="qv-title">Smartfon</h3>
+          <div class="qv-price">0 so'm</div>
+          
+          <div class="qv-section-label">Xotira hajmini tanlang:</div>
+          <div class="qv-storage-chips"></div>
+
+          <div class="qv-section-label" style="margin-top: 16px;">Asosiy xususiyatlar:</div>
+          <table class="qv-specs-table"></table>
+
+          <div style="margin-top: 20px;">
+            <button class="btn btn-primary full-btn qv-add-cart">Savatchaga qo'shish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy / Checkout Modal -->
+  <div id="modal-buy" class="modal">
+    <div class="modal-box">
+      <a href="#" class="modal-close">&times;</a>
+      <h3>Tezkor Buyurtma</h3>
+      <p>Buyurtmani rasmiylashtiring, operatorimiz 5 daqiqada bog'lanadi.</p>
+      <form action="#" class="modal-form">
+        <input type="text" id="modal-phone-model" placeholder="Tanlangan model" readonly style="opacity: 0.9; font-weight: 600;">
+        <input type="text" id="modal-name" placeholder="Ismingiz" required>
+        <input type="tel" id="modal-phone" placeholder="+998 90 123 45 67" required>
+
+        <div class="checkout-subtitle">To'lov usuli:</div>
+        <div class="pill-select-grid">
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Payme" checked>
+            <span>💳 Payme</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Click">
+            <span>🔹 Click</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Uzum">
+            <span>🍇 Uzum</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="payment_method" value="Naqd">
+            <span>💵 Naqd pul</span>
+          </label>
+        </div>
+
+        <div class="checkout-subtitle">Yetkazib berish:</div>
+        <div class="pill-select-grid">
+          <label class="pill-option">
+            <input type="radio" name="delivery_method" value="Kuryer" checked>
+            <span>🚀 Ekspress (1-3 soat)</span>
+          </label>
+          <label class="pill-option">
+            <input type="radio" name="delivery_method" value="Olib ketish">
+            <span>🏬 Do'kondan olish</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-btn" style="margin-top: 18px;">Buyurtmani tasdiqlash</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-overlay"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h3>Savatcha (<span id="drawer-count">0</span>)</h3>
+        <button class="cart-close" id="cart-close">&times;</button>
+      </div>
+      <div class="cart-body" id="cart-items"></div>
+      <div class="cart-footer">
+        <form id="cart-promo-form" class="cart-promo-box">
+          <input type="text" id="cart-promo-input" placeholder="Promokod (masalan: TELSTORE)" autocomplete="off">
+          <button type="submit" class="btn btn-secondary btn-sm">Qo'llash</button>
+        </form>
+        <div id="cart-discount-row" class="cart-discount-row" style="display: none;">
+          <span>Chegirma:</span>
+          <span id="cart-discount-val">- 0 so'm</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Jami to'lov:</span>
+          <strong id="cart-total-price">0 so'm</strong>
+        </div>
+        <button class="btn btn-primary full-btn" id="checkout-btn">Buyurtma berish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div id="wishlist-drawer" class="cart-drawer">
+    <div class="cart-drawer-overlay"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h3>Sevimlilar</h3>
+        <button class="cart-close" id="wishlist-close">&times;</button>
+      </div>
+      <div class="cart-body" id="wishlist-items"></div>
     </div>
   </div>
 
@@ -119,5 +252,29 @@
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" title="Yuqoriga qaytish">↑</button>
+
+  <script src="vendor/aos/aos.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 750,
+        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        once: true,
+        offset: 50
+      });
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    }
+  </script>
 </body>
 </html>
