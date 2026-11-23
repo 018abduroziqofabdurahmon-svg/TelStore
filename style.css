@@ -155,9 +155,10 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(9, 10, 16, 0.95);
+  background: transparent;
   border-bottom: 1px solid var(--border);
   transition: var(--transition);
+  backdrop-filter: blur;
 }
 
 .nav-container {
@@ -1053,8 +1054,9 @@ ul {
 }
 
 .modal:target {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .modal-box {
