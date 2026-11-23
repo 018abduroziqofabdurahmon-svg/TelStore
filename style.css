@@ -1,4 +1,11 @@
 /* ==========================================================================
+   Cross-Page View Transition (Zero-JS Navbar Morph)
+   ========================================================================== */
+@view-transition {
+  navigation: auto;
+}
+
+/* ==========================================================================
    Design Tokens & Variables
    ========================================================================== */
 :root {
@@ -127,7 +134,7 @@ ul {
 }
 
 /* ==========================================================================
-   Header & Navigation
+   Header & Sliding Navbar Pill
    ========================================================================== */
 .header {
   position: sticky;
@@ -167,31 +174,65 @@ ul {
 }
 
 .nav {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  gap: 0.6rem;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  width: 100%;
+  max-width: 480px;
+}
+
+.nav-pill {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(25% - 2.5px);
+  height: calc(100% - 10px);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(139, 92, 246, 0.28));
+  border: 1px solid rgba(99, 102, 241, 0.45);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  view-transition-name: nav-pill;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .nav a {
-  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-muted);
-  transition: var(--transition);
-  padding: 7px 16px;
+  text-align: center;
+  white-space: nowrap;
+  padding: 7px 10px;
   border-radius: var(--radius-pill);
+  transition: color 0.3s ease, scale 0.25s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffffff;
 }
 
 .nav a:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-  scale: 1.06;
+  scale: 1.05;
 }
 
-.nav a.active {
-  color: #ffffff;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(139, 92, 246, 0.22));
-  border: 1px solid rgba(99, 102, 241, 0.35);
-}
+.nav a:nth-child(1).active ~ .nav-pill { transform: translateX(0%); }
+.nav a:nth-child(2).active ~ .nav-pill { transform: translateX(100%); }
+.nav a:nth-child(3).active ~ .nav-pill { transform: translateX(200%); }
+.nav a:nth-child(4).active ~ .nav-pill { transform: translateX(300%); }
+
+.nav a:nth-child(1):hover ~ .nav-pill { transform: translateX(0%); }
+.nav a:nth-child(2):hover ~ .nav-pill { transform: translateX(100%); }
+.nav a:nth-child(3):hover ~ .nav-pill { transform: translateX(200%); }
+.nav a:nth-child(4):hover ~ .nav-pill { transform: translateX(300%); }
 
 .nav-toggle {
   display: none;
@@ -295,10 +336,6 @@ ul {
   transition: var(--transition);
 }
 
-.badge:hover {
-  scale: 1.06;
-}
-
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -349,7 +386,6 @@ ul {
 }
 
 .hero-image:hover {
-  scale: 1.05;
   border-color: var(--accent);
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85), 0 0 40px rgba(139, 92, 246, 0.4);
 }
@@ -429,10 +465,6 @@ ul {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(139, 92, 246, 0.22));
   border: 1px solid rgba(99, 102, 241, 0.35);
   transition: var(--transition);
-}
-
-.feature-card:hover .icon-box {
-  scale: 1.1;
 }
 
 .feature-card h3 {
@@ -582,7 +614,6 @@ ul {
 
 .promo-banner:hover {
   translate: 0 -4px;
-  scale: 1.025;
   border-color: rgba(99, 102, 241, 0.55);
 }
 
@@ -643,7 +674,7 @@ ul {
 }
 
 /* ==========================================================================
-   Subpage Headers & Pure CSS Catalog Filter Tabs
+   Subpage Headers & Sliding Catalog Filter Tabs
    ========================================================================== */
 .page-header {
   padding: 64px 0 46px;
@@ -710,7 +741,7 @@ ul {
   font-size: 0.88rem;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 0.3s ease, scale 0.25s ease;
+  transition: color 0.3s ease;
 }
 
 .filter-tabs label:hover {
@@ -740,30 +771,6 @@ ul {
   transform: translateX(300%);
 }
 
-.filter-tabs label {
-  padding: 9px 22px;
-  border-radius: var(--radius-pill);
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.filter-tabs label:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-  scale: 1.06;
-}
-
-#tab-all:checked ~ .filter-tabs label[for="tab-all"],
-#tab-apple:checked ~ .filter-tabs label[for="tab-apple"],
-#tab-samsung:checked ~ .filter-tabs label[for="tab-samsung"],
-#tab-xiaomi:checked ~ .filter-tabs label[for="tab-xiaomi"] {
-  background: var(--grad-primary);
-  color: #ffffff;
-}
-
 #tab-apple:checked ~ .catalog-grid .product-card:not(.item-apple),
 #tab-samsung:checked ~ .catalog-grid .product-card:not(.item-samsung),
 #tab-xiaomi:checked ~ .catalog-grid .product-card:not(.item-xiaomi) {
@@ -789,7 +796,6 @@ ul {
 }
 
 .about-img:hover {
-  scale: 1.035;
   border-color: var(--accent);
 }
 
@@ -827,7 +833,6 @@ ul {
 
 .stat-item:hover {
   translate: 0 -4px;
-  scale: 1.05;
   border-color: rgba(99, 102, 241, 0.45);
 }
 
@@ -862,7 +867,6 @@ ul {
 }
 
 .faq-item:hover {
-  scale: 1.025;
   border-color: rgba(99, 102, 241, 0.45);
 }
 
@@ -927,7 +931,6 @@ ul {
 
 .contact-form-card:hover {
   translate: 0 -4px;
-  scale: 1.02;
 }
 
 .contact-form-card h2 {
@@ -993,9 +996,8 @@ ul {
 }
 
 .modal:target {
-  display: flex !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-box {
@@ -1111,7 +1113,6 @@ ul {
 .footer-links a:hover {
   color: var(--accent);
   translate: 4px 0;
-  scale: 1.04;
 }
 
 .footer-bottom {
@@ -1180,6 +1181,8 @@ ul {
     top: 66px;
     left: 0;
     width: 100%;
+    max-width: none;
+    border-radius: 0;
     background: rgba(13, 16, 26, 0.92);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -1190,8 +1193,22 @@ ul {
     display: none;
   }
 
+  .nav-pill {
+    display: none;
+  }
+
+  .nav a.active {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(139, 92, 246, 0.22));
+    border: 1px solid rgba(99, 102, 241, 0.35);
+  }
+
   .nav-toggle:checked ~ .nav {
     display: flex;
+  }
+
+  .filter-tabs label {
+    font-size: 0.76rem;
+    padding: 8px 4px;
   }
 
   .grid-3,
@@ -1202,9 +1219,4 @@ ul {
   .promo-banner {
     padding: 28px 22px;
   }
-  
-  .filter-tabs label {
-    font-size: 0.76rem;
-    padding: 8px 4px;
-  }
-} 
+}
